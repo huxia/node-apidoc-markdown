@@ -29,7 +29,7 @@
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 <% data[group][sub][0].header.fields.Header.forEach(function (header) { -%>
-| <%- header.field %>			| <%- header.type %>			| <%- header.optional ? '**optional**' : '' %> <%- header.description %>							|
+| <%- header.field %>			| <%- header.type %>			| <%- header.optional ? '**optional**' : '' %> <%- header.description.replace(/<[^>]+>/g, '') %>							|
 <% }); //forech parameter -%>
 <% } //if parameters -%>
 <% if (data[group][sub][0].parameter && data[group][sub][0].parameter.fields.Parameter.length) { -%>
@@ -39,7 +39,7 @@
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 <% data[group][sub][0].parameter.fields.Parameter.forEach(function (param) { -%>
-| <%- param.field %>			| <%- param.type %>			| <%- param.optional ? '**optional**' : '' %> <%- param.description %>							|
+| <%- param.field %>			| <%- param.type %>			| <%- param.optional ? '**optional**' : '' %> <%- param.description.replace(/<[^>]+>/g, '') %>							|
 <% }); //forech parameter -%>
 <% } //if parameters -%>
 <% if (data[group][sub][0].examples && data[group][sub][0].examples.length) { -%>
