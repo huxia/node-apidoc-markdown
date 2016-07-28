@@ -1,6 +1,6 @@
-# <%= project.name %> v<%= project.version %>
+# <%= project.name %> (<%= project.version %>)
 
-<%= project.description %>
+<% if (project.description){ %><%= project.description.replace(/<\/(ul|ol)>/g, '\n</$1>').replace(/<\/\w+>\s*<p>/g, '\n').replace(/<li>/g, '\n* ').replace(/<[^>]+>/g, '') %><% } //if description %>
 
 <% Object.keys(data).forEach(function (group) { -%>
 - [<%= group %>](#<%=: group | mlink %>)
