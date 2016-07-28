@@ -19,7 +19,7 @@
 <% Object.keys(data[group]).forEach(function (sub) { -%>
 ## <%= data[group][sub][0].title %>
 
-<%-: data[group][sub][0].description | undef %>
+<%-: data[group][sub][0].description.replace(/</p>\s*<p>/g, "\n").replace(/<[^>]+>/g, '') | undef %>
 
 	<%-: data[group][sub][0].type | upcase %> <%= data[group][sub][0].url %>
 
