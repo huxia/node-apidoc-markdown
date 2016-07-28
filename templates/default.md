@@ -2,6 +2,8 @@
 
 <% if (project.description){ %><%= project.description.replace(/<\/(ul|ol)>/g, '\n</$1>').replace(/<\/\w+>\s*<p>/g, '\n').replace(/<li>/g, '\n* ').replace(/<[^>]+>/g, '') %><% } //if description %>
 
+## Menu
+
 <% Object.keys(data).forEach(function (group) { -%>
 - [<%= group %>](#<%=: group | mlink %>)
 	<% Object.keys(data[group]).forEach(function (sub) { -%>
@@ -19,7 +21,7 @@
 <% Object.keys(data[group]).forEach(function (sub) { -%>
 ## <%= data[group][sub][0].title %>
 
-<% if (data[group][sub][0].description){ %><%= data[group][sub][0].description.replace(/<\/(ul|ol)>/g, '\n</$1>').replace(/<\/\w+>\s*<p>/g, '\n').replace(/<li>/g, '\n* ').replace(/<[^>]+>/g, '') %><% } //if description %>
+<% if (data[group][sub][0].description){ %><%= data[group][sub][0].description.replace(/<\/(ul|ol)>/g, '\n</$1>').replace(/<\/\w+>\s*<p>/g, '\n').replace(/<li>/g, '\n* ').replace(/<(\/?code)>/g, '`').replace(/<[^>]+>/g, '') %><% } //if description %>
 
 	<%-: data[group][sub][0].type | upcase %> <%= data[group][sub][0].url %>
 
