@@ -19,7 +19,7 @@
 <% Object.keys(data[group]).forEach(function (sub) { -%>
 ## <%= data[group][sub][0].title %>
 
-<% if (data[group][sub][0].description){ %><%= data[group][sub][0].description.replace(/<\/p>\s*<p>/g, '\n').replace(/<li>]+>/g, '* ').replace(/<[^>]+>/g, '') %><% } //if description %>
+<% if (data[group][sub][0].description){ %><%= data[group][sub][0].description.replace(/<\/p>\s*<p>/g, '\n').replace(/<li>/g, '\n* ').replace(/<[^>]+>/g, '') %><% } //if description %>
 
 	<%-: data[group][sub][0].type | upcase %> <%= data[group][sub][0].url %>
 
