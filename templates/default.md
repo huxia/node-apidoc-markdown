@@ -42,7 +42,12 @@
 | <%- param.field %>			| <%- param.type %>			| <%- param.optional ? '**optional**' : '' %> <%- param.description.replace(/<[^>]+>/g, '') %>							|
 <% }); //forech parameter -%>
 <% } //if parameters -%>
-<% if (data[group][sub][0].description){ %><%= data[group][sub][0].description.replace(/<\/(ul|ol)>/g, '\n</$1>').replace(/<\/\w+>\s*<p>/g, '\n').replace(/<li>/g, '\n* ').replace(/<(\/?code)>/g, '`').replace(/<[^>]+>/g, '') %><% } //if description %>
+<% if (data[group][sub][0].description){ -%>
+
+### 说明
+
+<%= data[group][sub][0].description.replace(/<\/(ul|ol)>/g, '\n</$1>').replace(/<\/\w+>\s*<p>/g, '\n').replace(/<li>/g, '\n* ').replace(/<(\/?code)>/g, '`').replace(/<[^>]+>/g, '') %>
+<% } //if description %>
 <% if (data[group][sub][0].examples && data[group][sub][0].examples.length) { -%>
 
 ### 🌰
