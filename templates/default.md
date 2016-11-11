@@ -19,7 +19,8 @@
 # <%= group %>
 
 <% Object.keys(data[group]).forEach(function (sub) { -%>
-## <a name="<%=: data[group][sub][0].type | mlink %>-<%=: data[group][sub][0].url | replace:/[\/\?]/g,'-' %>"></a><%= data[group][sub][0].title %>
+### <%=: data[group][sub][0].type | mlink %>-<%=: data[group][sub][0].url | replace:/[\/\?]/g,'-' %>
+## <%= data[group][sub][0].title %>
 
 	<%-: data[group][sub][0].type | upcase %> <%= data[group][sub][0].url %>
 
