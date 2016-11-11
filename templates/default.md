@@ -7,7 +7,7 @@
 <% Object.keys(data).forEach(function (group) { -%>
 - [<%= group %>](#<%=: group | mlink %>)
 	<% Object.keys(data[group]).forEach(function (sub) { -%>
-- [<%= data[group][sub][0].title %>](#<%=: (data[group][sub][0].type + data[group][sub][0].url) | replace:/[^\w\-]/g,'-' | mlink %>) `<%-: data[group][sub][0].type | upcase %> <%= data[group][sub][0].url %>`
+- [<%= data[group][sub][0].title %>](#<%=: (data[group][sub][0].type + data[group][sub][0].url) | replace:/\w+/g,'-' | mlink %>) `<%-: data[group][sub][0].type | upcase %> <%= data[group][sub][0].url %>`
 	<% }); -%>
 
 <% }); %>
@@ -19,7 +19,7 @@
 # <%= group %>
 
 <% Object.keys(data[group]).forEach(function (sub) { -%>
-#### <%=: (data[group][sub][0].type + data[group][sub][0].url) | replace:/[^\w\-]/g,'-' | mlink %>
+#### <%=: (data[group][sub][0].type + data[group][sub][0].url) | replace:/\w+/g,'-' | mlink %>
 ## <%= data[group][sub][0].title %>
 
 	<%-: data[group][sub][0].type | upcase %> <%= data[group][sub][0].url %>
